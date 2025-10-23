@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern To-Do List</title>
+    <link rel="icon" type="image/png" href="./assets/img/work.png">
+    <link rel="stylesheet" href="./style.css">
+</head> 
+<body>
+    <div class="app-container">
+        <h1> <Span class="logo">MR6ix</Span>✨ Modern To-Do List</h1>
+        <p class="subtitle">Stay organized and never miss a task</p>
+
+        <div class="notification-banner" id="notificationBanner">
+            <span>🔔 Enable notifications to get reminders for your tasks</span>
+            <button onclick="requestNotificationPermission()">Enable</button>
+        </div>
+
+        <div class="main-content">
+            <!-- Form Section -->
+            <div class="form-card">
+                <h3> Add New Task</h3>
+                <form onsubmit="return formHandler(event)">
+                    <div class="form-group">
+                        <label>Plan</label>
+                        <input type="text" placeholder="What do you need to do?" id="plan" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Time</label>
+                        <input type="time" id="time" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" placeholder="Where will this happen?" id="location">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="timer-option">
+                            <input type="checkbox" id="enableTimer" onchange="toggleTimerInputs()">
+                            <label for="enableTimer" style="margin-bottom: 0; cursor: pointer;">⏰ Set a reminder timer</label>
+                        </div>
+                        <div class="timer-inputs" id="timerInputs">
+                            <div class="form-group">
+                                <label>Remind me on</label>
+                                <input type="date" id="timerDate">
+                            </div>
+                            <div class="form-group">
+                                <label>At time</label>
+                                <input type="time" id="timerTime">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">➕ Add Task</button>
+                </form>
+            </div>
+
+            <!-- Tasks Section -->
+            <div class="tasks-card">
+                <div class="tasks-header">
+                    <h3> Your Tasks</h3>
+                    <span class="task-count" id="taskCount">0 tasks</span>
+                </div>
+                <div class="tasks-list" id="tasksList">
+                    <!-- Tasks will be rendered here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
